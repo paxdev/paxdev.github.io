@@ -2,6 +2,8 @@
   title: home
 ---
 # Hello Site!
+{{ page.title }}
+
 <ul>
   {% for post in site.posts %}
     <li>
