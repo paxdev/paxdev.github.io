@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  A post
-permalink: somepage.html
+permalink: /somepage/
 ---
 
 # Hello there
