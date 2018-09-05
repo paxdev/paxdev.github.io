@@ -3,7 +3,7 @@
 ---
 # Hello Site!
 {{ page.title }}
-
+new
 <ul>
   {% for post in site.posts %}
     <li>
