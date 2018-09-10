@@ -1,10 +1,5 @@
 ---
-title:  A post
+title:  post
 layout: post
 ---
-
-# Hello there
-
-```
-var x = 0;
-```
+Hello post
