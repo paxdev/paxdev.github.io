@@ -1,6 +1,6 @@
 ---
 title:  A post
-permalink: /somepage/
+layout: post
 ---
 
 # Hello there
