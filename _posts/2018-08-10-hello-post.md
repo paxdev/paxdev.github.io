@@ -1,5 +1,5 @@
 ---
-title:  post
 layout: post
+title:  post
 ---
 Hello post
