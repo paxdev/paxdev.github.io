@@ -5,7 +5,7 @@ title: Provisioning Kubernetes pod resources using Helm
 
 In the `values.yaml` file, there is an entry
 
-``` yaml
+```yaml
 resources: {}
 ```
 
@@ -29,7 +29,7 @@ The container's memory can exceed the **request**, but it **cannot exceed the li
 Once the **limit** is exceed, the container will become a candidate for termination and will restart.
 The **CPU limit** acts as a throttle. The container will never be allowed to exceed the CPU limit.
 
-``` yaml
+```yaml
 resources:
   limits:
    cpu: 150m
