@@ -4,7 +4,7 @@ title: Provisioning Kubernetes pod resources using Helm
 ---
 
 ## in the `values.yaml` file, there is an entry
-```
+``` yaml
 resources: {}
 ```
 This allows you specify values for CPU and memory:
@@ -26,7 +26,7 @@ When pods are running, Kubernetes will monitor the **limit**.
 The container's memory can exceed the **request**, but it **cannot exceed the limit**.
 Once the **limit** is exceed, the container will become a candidate for termination and will restart.
 The **CPU limit** acts as a throttle. The container will never be allowed to exceed the CPU limit.
-```
+``` yaml
 resources:
   limits:
    cpu: 150m
