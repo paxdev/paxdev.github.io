@@ -3,15 +3,15 @@ layout: post
 title: Provisioning Kubernetes pod resources using Helm
 ---
 
-# Provisioning Kubernetes pod resources using Helm
 ## in the `values.yaml` file, there is an entry
 ```
 resources: {}
 ```
 This allows you specify values for CPU and memory:
 
-https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/
-https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/
+(https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)[https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/]
+
+(https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)[https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/]
 
 Memory is specified in bytes (can be M or Mi, or K or Ki etc.). CPU is specified in a fraction
 of a "CPU Unit" where 1 CPU unit = 1 AWS vCPU. They can additionally be specified using _m_ as a unit
