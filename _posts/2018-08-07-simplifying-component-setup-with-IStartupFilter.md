@@ -68,16 +68,20 @@ stream.
 
 In order to register this, our users need to add 
 
-```services.AddSingleton<IMessageWriter, MessageWriter>();```
+```c#
+services.AddSingleton<IMessageWriter, MessageWriter>();
+```
 
 to their `ConfigureServices` and
 
-```app.UseMiddleware<DemoMiddleware>();```
+```c#
+app.UseMiddleware<DemoMiddleware>();
+```
 
 to their `Configure`.
 
 To make this easier to use for our users, we can leverage the `IStartupFilter` and
-a convenient extension method. 
+a convenient extension method.
 
 ```c#
 public static class DemoMiddlewareRegistrationExtensions
