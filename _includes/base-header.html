@@ -1,9 +1,9 @@
-<header class="masthead" style="background-image: url('{{page.backgroundImage}}')">
-    <div :class="overlay: {{ page.overlay }}"></div>
+<header class="masthead" style="background-image: url('{{page.header.backgroundImage}}')">
+    <div :class="overlay: {{ page.header.overlay }}"></div>
     <div class="site-heading"> 
-        <h1>{{ page.heading }}</h1>
-        {% if page.subheading  %}
-            <span class="subheading">page.subheading</span>
+        <h1>{{ page.header.heading }}</h1>
+        {% if page.header.subheading  %}
+            <span class="subheading">{{ page.header.subheading }}</span>
         {% endif %}
     </div>
 </header>
