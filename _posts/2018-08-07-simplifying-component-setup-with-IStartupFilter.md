@@ -97,7 +97,7 @@ public static class DemoMiddlewareRegistrationExtensions
 Here we're adding the IMessageWriter service and an IStartupFilter service. The IStartupFilter 
 service looks like this:
 
-```c#
+{% highlight c# %}
 public class DemoMiddlewareStartupFilter : IStartupFilter
 {
     public Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next) =>
@@ -107,7 +107,7 @@ public class DemoMiddlewareStartupFilter : IStartupFilter
             next(app);
         };
 }
-```
+{% endhighlight %}
 
 Here we return an `Action` on `IApplicationBuilder` which is where we tell AspNetCore
 to use our Middleware, remembering to call the passed in `next` afterwards.
