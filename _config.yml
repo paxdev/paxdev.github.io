@@ -1,2 +1,10 @@
 name: pax's dev blog
-theme: jekyll-theme-tactile
+
+defaults:
+  -
+    scope:
+      path: ""      # empty string for all files
+      type: posts   # limit to posts
+    values:
+      header: 
+        backgroundImage: earthrise.jpg

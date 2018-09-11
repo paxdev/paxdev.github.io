@@ -1,1 +1,9 @@
-{% include base-header.html heading="Hello" backgroundImage="https://static.bhphotovideo.com/explora/sites/default/files/Too-Blue.jpg" overlay="true" %}
+<header class="masthead" style="background-image: url('{{page.header.backgroundImage}}')">
+    <div :class="overlay: {{ page.header.overlay }}"></div>
+    <div class="site-heading"> 
+        <h1>{{ page.title }}</h1>
+        {% if page.header.subheading  %}
+            <span class="subheading">{{ page.header.subheading }}</span>
+        {% endif %}
+    </div>
+</header>

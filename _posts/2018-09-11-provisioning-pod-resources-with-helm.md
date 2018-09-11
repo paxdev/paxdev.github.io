@@ -3,15 +3,17 @@ layout: post
 title: Provisioning Kubernetes pod resources using Helm
 ---
 
-## in the `values.yaml` file, there is an entry
+In the `values.yaml` file, there is an entry
+
 ``` yaml
 resources: {}
 ```
+
 This allows you specify values for CPU and memory:
 
-(https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/)[https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/]
+<https://kubernetes.io/docs/tasks/configure-pod-container/assign-memory-resource/>
 
-(https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/)[https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/]
+<https://kubernetes.io/docs/tasks/configure-pod-container/assign-cpu-resource/>
 
 Memory is specified in bytes (can be M or Mi, or K or Ki etc.). CPU is specified in a fraction
 of a "CPU Unit" where 1 CPU unit = 1 AWS vCPU. They can additionally be specified using _m_ as a unit
@@ -26,6 +28,7 @@ When pods are running, Kubernetes will monitor the **limit**.
 The container's memory can exceed the **request**, but it **cannot exceed the limit**.
 Once the **limit** is exceed, the container will become a candidate for termination and will restart.
 The **CPU limit** acts as a throttle. The container will never be allowed to exceed the CPU limit.
+
 ``` yaml
 resources:
   limits:
@@ -35,6 +38,7 @@ resources:
    cpu: 100m
    memory: 512Mi
 ```
+
 In the above example, when provisioning the pod, Kubernetes will only create the pod if it has 100m CPU and 512Mi
 memory available.
 However, it will allow the CPU time to grow to 150m before throttling and the memory to grow to 1024Mi before
