@@ -7,4 +7,4 @@ defaults:
       type: posts   # limit to posts
     values:
       header: 
-        backgroundImage: earthrise.jpg
+        backgroundImage: /assets/bg/earthrise.jpg
