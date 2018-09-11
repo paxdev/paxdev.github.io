@@ -1,8 +1,9 @@
-<header class="masthead" style="background-image: 'url({{include.backgroundImage}})'">
-    <div :class="overlay: {{ include.overlay }}"></div>
+<header class="masthead" style="background-image: 'url({{page.backgroundImage}})'">
+    <div class="overlay: {{ page.overlay }}"></div>
     <div class="site-heading"> 
-    <h1>{{ include.heading }}</h1>
-    <!--<span v-if="subheading" class="subheading">{{ subheading }}</span>-->
-
+    <h1>{{ page.heading }}</h1>
+    {% if page.subheading  %}
+        <span class="subheading">page.subheading</span>
+    {% endif %}
 </div>
 </header>
