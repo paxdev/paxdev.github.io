@@ -1,4 +1,5 @@
 name: pax's dev blog
+highlighter: rouge
 
 defaults:
   -
