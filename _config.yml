@@ -1,9 +1,8 @@
 name: pax's dev blog
 markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM
-
-highlighter: rouge
 
 defaults:
   -
