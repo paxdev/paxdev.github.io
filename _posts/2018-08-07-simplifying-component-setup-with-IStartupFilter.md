@@ -154,8 +154,8 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         .UseDemoMiddleware();
 ```
 
-Note that, at least at the time of writing, the GenericHost does not have the same `Startup` pattern as `ASP.Net`
-so the `IStartupFilter` can be registered, but will not ever be called.
+Note that the GenericHost does not have the same `Startup` pattern as ASP.Net Core [(Instead it registers `IHostedService` instances)](https://github.com/aspnet/Hosting/issues/1163)
+so the `IStartupFilter` can be registered, but will never be called.
 
 In conclusion, `IStartupFilter` allows you to create a single point for consumers of your API to both
 register and configure your services.
