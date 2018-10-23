@@ -111,9 +111,8 @@ public class DemoMiddlewareStartupFilter : IStartupFilter
 
 Here we return an `Action` on `IApplicationBuilder` which is where we tell AspNetCore
 to use our Middleware, remembering to call the passed in `next` afterwards.
-_(Of course depending on our needs we may be terminating the call here, e.g. if our
-Middleware detected something like an authentication error, or any other cause to
-stop processing the request)_.
+_(Of course depending on our needs we may be terminating the call here, e.g. if we can't start up in a
+consistent state we may not wish to continue starting up.)_
 
 Now all our users need do is add one line to call this extension method from the `ConfigureServices` 
 method of `Startup.cs`:
@@ -155,8 +154,8 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         .UseDemoMiddleware();
 ```
 
-Remember, of course, that, at least at the time of writing, if you wish to use this with the GenericHost,
-you will need a separate extension method on IHostBuilder as well.
+Note that, at least at the time of writing, the GenericHost does not have the same `Startup` pattern as `ASP.Net`
+so the `IStartupFilter` can be registered, but will not ever be called.
 
 In conclusion, `IStartupFilter` allows you to create a single point for consumers of your API to both
 register and configure your services.
