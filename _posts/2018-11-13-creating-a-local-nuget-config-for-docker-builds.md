@@ -17,16 +17,16 @@ Now we need to create a relevant entry in our root `NuGet.config` file. On Windo
 
 ```xml
 <packageSources>
-  <add key="{{myfeedname}}" value="{{myfeedurl}}" />
+  <add key="((myfeedname))" value="((myfeedurl))" />
 </packageSource>
 
 ...
 
 <packageSourceCredentials>
-  <{{myfeedname}}>
+  <((myfeedname))>
     <add key="Username" value="anything" />
-    <add key="ClearTextPassword" value="{{my-personal-access-token}}" />
-  </{{myfeedname}}>
+    <add key="ClearTextPassword" value="((my-personal-access-token))" />
+  </((myfeedname))>
 </packageSourceCredentials>
 ```
 
@@ -42,7 +42,7 @@ I save this next to my docker-compose.yml which is also next to my `.sln` soluti
 The final step is to use the `dockerfile` to tell the Docker build to pull in our generated configuration
 
 ```dockerfile
-COPY NuGet.config {{folder containing my .csproj or .sln}}/
+COPY NuGet.config ((folder containing my .csproj or .sln))/
 ```
 
 Now when I run the PowerShell script I will get a fresh copy of my NuGet.config from a single source, 
