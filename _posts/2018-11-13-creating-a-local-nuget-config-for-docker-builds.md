@@ -7,7 +7,7 @@ so we have a challenge to access our packages on a `dotnet restore`.
 
 We can pass credentials via a NuGet.config file, but we don't really want to store these in Source Control.
 
-First of all, we add `NuGet.config` to our `.gitignore` file (or whatever your source control uses to exclude files
+First of all, we add `NuGet.config` to our `.gitignore` file (or whatever your source control uses to exclude files)
 
 Next we head on over to Azure DevOps to [create a personal access token](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate)
 
@@ -37,7 +37,7 @@ copy $env:APPDATA\NuGet\NuGet.Config NuGet.Config
 docker-compose build
 ```
 
-I save this next to my docker-compose.yml which is also next to my `.sln` solution file.
+I save this next to my docker-compose.yml.
 
 The final step is to use the `dockerfile` to tell the Docker build to pull in our generated configuration
 
