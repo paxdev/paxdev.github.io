@@ -66,3 +66,14 @@ This simply spins up an image, copies out the test results and then removes the 
 4. Finally we add a `Publish Test Results` task to the Build so that we can get the Test Results in our Build Logs. 
 Make sure to use VSTest result format if you are using `dotnet test`
 
+If you have a build with multiple test files then you will need some way to run them all. On a Linux container you could try something like
+
+```dockerfile
+RUN for testfile in $(find . -name "*.Tests.csproj"); do dotnet test -r /TestResults --logger "trx" ${testfile}; done
+```
+
+Then in the Bash script your `docker cp` would look like 
+
+```bash
+docker cp test:/TestResults/. .
+```
