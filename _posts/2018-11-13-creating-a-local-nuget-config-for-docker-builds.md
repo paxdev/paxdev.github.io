@@ -1,5 +1,5 @@
 ---
-  title: Accessing private NuGet feeds in a local Docker build
+  title: Access Private NuGet Feed In Local Docker Build
 ---
 
 A Docker build does not necessarily run in a context that is authorised to access a private NuGet feed, 
