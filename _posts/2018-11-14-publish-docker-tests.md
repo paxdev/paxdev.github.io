@@ -26,7 +26,7 @@ FROM build AS test
 FROM base AS final ... ((normal publish and entrypoint commands))
 ```
 
-1. Now amend the `docker-compose` file to separately create the test container:
+2. Now amend the `docker-compose` file to separately create the test container:
 
 ```yaml
 services:
@@ -53,7 +53,7 @@ If you wanted to be really clean, you could create an image to just hold the Tes
 Note also that this does trigger two Docker builds, but the second one should just be a run through of selecting cached layers as 
 nothing will have changed since the first build.
 
-1. We now need to add a `Bash Script task` to our Azure Build Pipeline. Set the script type to Inline
+3. We now need to add a `Bash Script task` to our Azure Build Pipeline. Set the script type to Inline
 
 ```bash
 docker create --name ((myapp))-test-results ((myapp))-tests
@@ -63,6 +63,6 @@ docker rm ((myapp))-test-results
 
 This simply spins up an image, copies out the test results and then removes the image.
 
-1. Finally we add a `Publish Test Results` task to the Build so that we can get the Test Results in our Build Logs. 
+4. Finally we add a `Publish Test Results` task to the Build so that we can get the Test Results in our Build Logs. 
 Make sure to use VSTest result format if you are using `dotnet test`
 
