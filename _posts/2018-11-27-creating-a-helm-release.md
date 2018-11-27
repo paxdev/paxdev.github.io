@@ -15,13 +15,13 @@ helm create {your-chart-name}
 
 2. This will create a set of default files for you to use. First of all we'll look at `Chart.yaml`
 
-```yaml
-apiVersion: v1
-appVersion: "1.0"
-description: A Helm chart for Kubernetes
-name: {your-chart-name}
-version: 0.1.0
-```
+    ```yaml
+    apiVersion: v1
+    appVersion: "1.0"
+    description: A Helm chart for Kubernetes
+    name: {your-chart-name}
+    version: 0.1.0
+    ```
 
 * `apiVersion:` is required and is the version of the _Helm_ api.
 * `appVersion:` is the version of _your_ app that is being deployed in this chart and is optional.
