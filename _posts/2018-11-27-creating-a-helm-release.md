@@ -1,5 +1,5 @@
 ---
-  title: Creating A Helm release for Kubernetes
+  title: Creating a Helm Release for Kubernetes
 ---
 
 To deploy a web application to Kubernetes using Helm, use the following steps (assuming you have already containerised your application.)
@@ -23,12 +23,12 @@ name: {your-chart-name}
 version: 0.1.0
 ```
 
-* 'apiVersion:' is required and is the version of the _Helm_ api.
-* 'appVersion:' is the version of _your_ app that is being deployed in this chart and is optional.
+* `apiVersion:` is required and is the version of the _Helm_ api.
+* `appVersion:` is the version of _your_ app that is being deployed in this chart and is optional.
 This does not need to be SemVer format.
 * `description:` is an optional description of the app being deployed.
 * `name:` is required and is obviously the name of the Chart.
-* `version:` is required and is the SemVer 2 version _of the Chart`. I typically leave this as it is and set the 
+* `version:` is required and is the SemVer 2 version of the Chart. I typically leave this as it is and set the 
 version when creating an install package as part of a build pipeline.
 
 You can check all the options in the Kubernetes documentation. 
@@ -59,7 +59,7 @@ ingress:
 ```
 
 This is the file that will be used to build the Charts for your `Deployment`, `Service` and `Ingress`. 
-To see how these values are used, you can see the individual templates in the `/templates' folder.
+To see how these values are used, you can see the individual templates in the `/templates` folder.
 
 I also tend to add `fullnameOverride:`, otherwise Helm will create labels based on a concatenation of your release and chart name, 
 which is probably not desirable. 
