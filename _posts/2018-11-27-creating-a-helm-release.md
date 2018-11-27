@@ -9,18 +9,18 @@ Note this will create a deployment (to create the Pod), a Service (to label the 
 
 1. Create an empty folder to work in. From the command line use
 
-```shell
+    ```shell
 helm create {your-chart-name}
-```
+    ```
 
-2. This will create a set of default files for you to use. First of all we'll look at `Chart.yaml`
+1. This will create a set of default files for you to use. First of all we'll look at `Chart.yaml`
 
     ```yaml
-    apiVersion: v1
-    appVersion: "1.0"
-    description: A Helm chart for Kubernetes
-    name: {your-chart-name}
-    version: 0.1.0
+apiVersion: v1
+appVersion: "1.0"
+description: A Helm chart for Kubernetes
+name: {your-chart-name}
+version: 0.1.0
     ```
 
 * `apiVersion:` is required and is the version of the _Helm_ api.
@@ -36,9 +36,9 @@ Exactly what you choose to enter here will depend on who your target audience is
 As I use Helm Charts for Build/Release, I tend not to go crazy on adding details here, 
 but if you are going to make your Charts publicly available, then you should give your consumers as much information as they need.
 
-3. Now let's look at `values.yaml`
+1. Now let's look at `values.yaml`
 
-```yaml
+    ```yaml
 replicaCount: 1
 
 image:
@@ -56,7 +56,7 @@ ingress:
   path: /
   hosts:
     - chart-example.local
-```
+    ```
 
 This is the file that will be used to build the Charts for your `Deployment`, `Service` and `Ingress`. 
 To see how these values are used, you can see the individual templates in the `/templates` folder.
