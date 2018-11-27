@@ -29,10 +29,9 @@ Note this will create a deployment (to create the Pod), a Service (to label the 
     * `name:` is required and is obviously the name of the Chart.
     * `version:` is required and is the SemVer 2 version of the Chart. I typically leave this as it is and set the version when creating an install package as part of a build pipeline.
 
-You can check all the options in the Kubernetes documentation. 
-Exactly what you choose to enter here will depend on who your target audience is. 
-As I use Helm Charts for Build/Release, I tend not to go crazy on adding details here, 
-but if you are going to make your Charts publicly available, then you should give your consumers as much information as they need.
+    You can check all the options in the Kubernetes documentation. 
+    Exactly what you choose to enter here will depend on who your target audience is. 
+    As I use Helm Charts for Build/Release, I tend not to go crazy on adding details here,  but if you are going to make your Charts publicly available, then you should give your consumers as much information as they need,
 
 1. Now let's look at `values.yaml`
 
@@ -56,18 +55,18 @@ but if you are going to make your Charts publicly available, then you should giv
         - chart-example.local
     ```
 
-This is the file that will be used to build the Charts for your `Deployment`, `Service` and `Ingress`. 
-To see how these values are used, you can see the individual templates in the `/templates` folder.
+    This is the file that will be used to build the Charts for your `Deployment`, `Service` and `Ingress`. 
+    To see how these values are used, you can see the individual templates in the `/templates` folder.
 
-I also tend to add `fullnameOverride:`, otherwise Helm will create labels based on a concatenation of your release and chart name, 
-which is probably not desirable. 
-If you wish to name your deployed objects by release, you can always create an override of the `fullnameOverride:` that you specify 
-as part of the release process.
+    I also tend to add `fullnameOverride:`, otherwise Helm will create labels based on a concatenation of your release and chart name, 
+    which is probably not desirable. 
+    If you wish to name your deployed objects by release, you can always create an override of the `fullnameOverride:` that you specify 
+    as part of the release process.
 
-Personally, I like to set a `values.yaml` that will work for a standard local development environment in my organisation. 
-That way when someone pulls the code for the first time it should JustWork&trade; on their machine.
+    Personally, I like to set a `values.yaml` that will work for a standard local development environment in my organisation. 
+    That way when someone pulls the code for the first time it should JustWork&trade; on their machine.
 
-In the next step we'll create some overrides to use when creating releases for other environments.
+    In the next step we'll create some overrides to use when creating releases for other environments.
 
 1. Create a `values.release.yaml`. I tend to like to keep my chart along with my source code in a root folder `helm` 
 (so my 'values.yaml' is then `{root}\helm\{my-chart-name}\values.yaml`). 
@@ -85,14 +84,14 @@ On Azure I have something like this:
     helm package --version $(Build.BuildNumber) ./$(Helm.ChartPath)/
     ```
 
-where Build.BuildNumber _must_ output something that validates as a SemVer 2, and Helm.ChartPath is a pipeline variable.
+    where Build.BuildNumber _must_ output something that validates as a SemVer 2, and Helm.ChartPath is a pipeline variable.
 
 1. I now publish the Helm package and the `values.release.yaml` as build artifacts to be picked up by my release pipeline.
 (Note that the other build artifact(s) here is my Docker image(s) published to my repository.)
 
-_For bonus points you can notice that you will probably want to be installing/initialising Helm a lot, 
-as well as repeating the package/publish steps. On Azure extract these to a parameterised **Task Group** and 
-reap the benefit of never having to repeat those tedious build tasks again!_
+    _For bonus points you can notice that you will probably want to be installing/initialising Helm a lot, 
+    as well as repeating the package/publish steps. On Azure extract these to a parameterised **Task Group** and 
+    reap the benefit of never having to repeat those tedious build tasks again!_
 
 1. We can now start to build Release Pipelines. 
 Again these next few steps are an ideal candidate for extraction to a Task Group so that you can reuse them across your projects.
@@ -115,5 +114,5 @@ cluster can access.
 			 {path-to-helm-chart}/{chart-name}-$(Build.BuildNumber).tgz 
     ```
 
-Note that Helm suffixes a hyphen and the version number to the package. I specified my version number from the Azure build.
-You should use suitable values or variables for your Release Pipeline for the other parameters.  
+    Note that Helm suffixes a hyphen and the version number to the package. I specified my version number from the Azure build.
+    You should use suitable values or variables for your Release Pipeline for the other parameters.  
