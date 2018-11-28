@@ -3,6 +3,7 @@
 ---
 
 # Docker
+
 ```bash
 # build a dockerfile in current directory with name:tag {name:tag}
 docker build -t {name:tag} .
@@ -27,7 +28,11 @@ docker stop {first-few-chars-of-id}
 docker rm {first-few-chars-of-id}
 ```
 
+# Kubernetes
+(official cheatsheet)[https://kubernetes.io/docs/reference/kubectl/cheatsheet/]
+
 # Helm
+
 ```bash
 # Package a chart
 helm package {chart-name} --version {version} # version must be semver 2
