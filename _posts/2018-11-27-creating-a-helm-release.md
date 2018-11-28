@@ -68,6 +68,15 @@ Note this will create a deployment (to create the Pod), a Service (to label the 
 
     In the next step we'll create some overrides to use when creating releases for other environments.
 
+1. You can test this locally
+    ```shell
+    # lint it!
+    helm lint {your-chart-name}
+    # do a dry run and output the generated yaml
+    helm install --debug --dry-run {your-chart-name}
+    # take out the --debug --dry-run if you have minikube installed locally and you can check it deploys as expected.
+    ```
+
 1. Create a `values.release.yaml`. I tend to like to keep my chart along with my source code in a root folder `helm` 
 (so my 'values.yaml' is then `{root}\helm\{my-chart-name}\values.yaml`). 
 I then create my overrides at `{root}\helm\values.release.yaml`.
