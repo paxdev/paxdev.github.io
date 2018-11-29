@@ -34,8 +34,7 @@ package. It defines one method:
 Action<IApplicationBuilder> Configure(Action<IApplicationBuilder> next);
 ```
 
-_Note that although you can use an IStartupFilter with the Generic Host, it hasn't (at the time of writing) made into a non-AspNetCore package,
-so you will need to refer to the AspNet version regardless of whether you are using AspNet or not._
+_Note that this does not apply to the Generic Host, which has a different startup model._
 
 When you call `Build` on your `HostBuilder` (either Generic or Web) the runtime retrieves an `IEnumerable` of `IStartupFilters` from its
 `ServiceCollection` and then iterates through them in order invoking the `Configure` method on your app's `ApplicationBuilder`.
