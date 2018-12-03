@@ -7,7 +7,7 @@
 
 ## Install a template from a file:
 ```shell
-dotnet new -i ../{{path-to-project-folder}}
+dotnet new -i ../[[path-to-project-folder]]
 # Where path-to-project-folder is the folder containing the .template.config folder, which itself contains a template.json
 ```
 
@@ -18,9 +18,9 @@ dotnet new --debug:reinit
 
 ## Remove a folder template:
 ```shell
-dotnet new -u {{path-to-project}}
+dotnet new -u [[path-to-project]]
 # *Note that the above must be fully qualified whereas you can dotnet new -i from a relative path*
-# To find the correct path you can use 
+# To find the correct path you should use 
 dotnet new -u -h
 # This will list all installed templates
 ```
@@ -28,11 +28,11 @@ dotnet new -u -h
 ## template.json
 ```json
 {
-  "author": "{{Self-explanatory}}",
-  "classifications": ["list of tags"],
-  "name": "{{The full name}}",
-  "shortName": "{{what you'll dotnet new with}}",
-   "identity": "{{Unique.Identifier}}",
+  "author": "[[Self-explanatory]]",
+  "classifications": [[["list of tags"]]],
+  "name": "[[The full name]]",
+  "shortName": "[[what you'll dotnet new with]]",
+   "identity": "[[Unique.Identifier]]",
   "tags": {
     "language": "C#"
   },
@@ -63,12 +63,12 @@ dotnet new -u -h
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
-    <id>{{Nuget.Package.Id}}</id>
+    <id>[[Nuget.Package.Id]]</id>
     <version>1.0.0</version>
     <description>
-      {{description}}
+      [[description]]
     </description>
-    <authors>{{author}}</authors>
+    <authors>[[author]]</authors>
     <packageTypes>
       <packageType name="Template" />
     </packageTypes>
@@ -78,5 +78,8 @@ dotnet new -u -h
 
 ## Now when you Package and Push you can 
 ```shell
-dotnet new -i {{Nuget.Package.Id}}
+dotnet new -i [[Nuget.Package.Id]]
+
+# and to remove
+dotnet new -u [[Nuget.Package.Id]]
 ```
