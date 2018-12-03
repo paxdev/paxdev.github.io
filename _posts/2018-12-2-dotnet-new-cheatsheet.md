@@ -56,7 +56,8 @@ dotnet new -u -h
 }
 ```
 
-## .nuspec folder
+## Publish to NuGet
+### .nuspec file
 ### Must be at the same level as the `.template.config` folder
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
