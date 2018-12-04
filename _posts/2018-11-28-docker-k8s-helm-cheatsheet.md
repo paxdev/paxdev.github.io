@@ -29,7 +29,7 @@ docker rm {first-few-chars-of-id}
 ```
 
 # Kubernetes
-(official cheatsheet)[https://kubernetes.io/docs/reference/kubectl/cheatsheet/]
+[official cheatsheet](https://kubernetes.io/docs/reference/kubectl/cheatsheet/)
 
 # Helm
 
