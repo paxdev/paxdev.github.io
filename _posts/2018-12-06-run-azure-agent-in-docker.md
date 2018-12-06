@@ -11,12 +11,10 @@ There are a number of benefits of running a dedicated Agent for your Azure Pipel
 1. You don't have to wait for a Hosted Agent to be provisioned.
 1. _(And this is the killer!)_ You can take advantage of Docker caching to speed up your builds.
 
-One of the disadvantages of doing is, however, is that you need to ensure that you provision your Agent correctly and 
-have the complication of ensuring it has the right software/connections.
+One of the disadvantages of doing is, however, is that you need to maintain your Agent and make sure it is configured correctly.
 
-This is where Docker steps in. We can download a pre-configured agent and run it as a Docker container.
-Just make sure that this is run on a machine that is always available, otherwise you ~~may~~ will switch off the machine running your 
-Agent and then find that your pipeline has no available Agents in the pool!
+This is where Docker steps in. We can download a pre-configured Agent and run it as a Docker container.
+Just make sure that this is run on a machine that is always available, otherwise ~~if~~ when you switch it off you will find that your Pipeline has no available Agents!
 
 ```bash
 docker run -e VSTS_ACCOUNT=<<my-account>> -e VSTS_TOKEN=<<my-token>> -e VSTS_POOL="<<my-agent-pool>>" -v /var/run/docker.sock:/var/run/docker.sock -it microsoft/vsts-agent
@@ -30,19 +28,21 @@ The problem here is that when you close your SSH session, you can end up killing
 
 What I do is use `screen`.
 
-Typing `screen` at the command prompt starts a new session. I can then use `Ctrl-A, d` to detach from that screen session which will leave the terminal running when I exit my SSH session.
+Typing `screen` at the command prompt starts a new terminal session. I can then use `Ctrl-A, d` to detach from that session, which will stay running if I exit my SSH session.
 
-Later on (e.g. if I log back in) when I need to pick up the session running the container, `screen -r` lists running sessions, I can resume:
+Later on, when I need to pick up the session, `screen -ls` lists running sessions:
 
 ```bash
-screen -r
-
-There are several suitable screens on:
-        7575.pts-0.ubuntu-es    (06/12/18 14:32:50)     (Detached)
-        4371.pts-0.ubuntu-es    (19/11/18 16:18:03)     (Attached)
+There are screens on:
+        59556.pts-0.ubuntu-es   (23/11/18 13:09:35)     (Detached)
+        [...]
 Type "screen [-d] -r [pid.]tty.host" to resume one of them.
-
-screen -r 7575.pts-0.ubuntu-es
 ```
 
-I can then carry on working, or `exit` this terminal session to kill it.
+I can then resume with the ID of the session.
+
+```bash
+screen -r 59556
+```
+
+From here I can carry on working, or `exit` the session to kill it.
