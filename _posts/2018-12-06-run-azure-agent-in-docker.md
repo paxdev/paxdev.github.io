@@ -32,9 +32,7 @@ What I do is use `screen`.
 
 Typing `screen` at the command prompt starts a new session. I can then use `Ctrl-A, d` to detach from that screen session which will leave the terminal running when I exit my SSH session.
 
-`screen -r` lists running sessions which I can resume using the name listed. (Even after exiting and starting a new SSH session)
-
-e.g.
+Later on (e.g. if I log back in) when I need to pick up the session running the container, `screen -r` lists running sessions, I can resume:
 
 ```bash
 screen -r
@@ -45,7 +43,6 @@ There are several suitable screens on:
 Type "screen [-d] -r [pid.]tty.host" to resume one of them.
 
 screen -r 7575.pts-0.ubuntu-es
-
 ```
 
-I can then carry on working, or `exit` this terminal session.
+I can then carry on working, or `exit` this terminal session to kill it.
