@@ -18,3 +18,4 @@ defaults:
     values:
       header: 
         backgroundImage: /assets/bg/soyuz.jpg
+        overlay: true
