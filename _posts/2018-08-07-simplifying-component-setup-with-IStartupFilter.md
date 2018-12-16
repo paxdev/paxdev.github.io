@@ -2,13 +2,11 @@
   title: IStartupFilter
   header:
     subheading: Simplifying component setup with IStartupFilter
-  tags:
+  categories:
     - c#
     - dotnetcore
     - asp
 ---
-
-{{ page.title }}
 
 When registering services in ASP.Net Core, often you have to register 
 the services in `Startup.ConfigureServices` and then tell the 
