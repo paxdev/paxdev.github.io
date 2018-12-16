@@ -5,7 +5,7 @@
   categories:
     - dotnetcore
   tags:
-    - c#
+    - csharp
     - dotnetcore
     - asp
 ---
