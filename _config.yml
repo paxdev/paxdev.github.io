@@ -12,3 +12,9 @@ defaults:
     values:
       header: 
         backgroundImage: /assets/bg/earthrise.jpg
+  -
+    scope:
+      path: "tag"      
+    values:
+      header: 
+        backgroundImage: /assets/bg/nebula.jpg
