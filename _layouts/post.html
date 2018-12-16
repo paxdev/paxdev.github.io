@@ -12,7 +12,7 @@ layout: default
       </div>
   </div>
   
-  {% if page.tags %}
+  {% unless page.tags == empty %}
   <div class="container">
     <div class="row">
       <span>[
@@ -23,7 +23,7 @@ layout: default
         ]</span>
     </div>
   </div>
-  {% endif %}
+  {% endunless %}
 </article>
 
 
