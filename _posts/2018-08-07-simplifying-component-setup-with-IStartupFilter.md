@@ -3,6 +3,8 @@
   header:
     subheading: Simplifying component setup with IStartupFilter
   categories:
+    - dotnetcore
+  tags:
     - c#
     - dotnetcore
     - asp
