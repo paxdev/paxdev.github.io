@@ -24,4 +24,8 @@
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">   -->
     
     <link href="/css/syntax.css" rel="stylesheet">
+    {% if site.tags != "" %}
+        {% include categories-tags.html %}
+    {% endif %}
+
 </head>
