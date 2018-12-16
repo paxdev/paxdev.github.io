@@ -1,6 +1,11 @@
 ---
 layout: post
 title: Provisioning Kubernetes pod resources using Helm
+categories:
+  - kubernetes
+tags:
+  - kubernetes
+  - helm
 ---
 
 In the `values.yaml` file, there is an entry
