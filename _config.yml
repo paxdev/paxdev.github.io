@@ -17,4 +17,4 @@ defaults:
       path: "tag"      
     values:
       header: 
-        backgroundImage: /assets/bg/nebula.jpg
+        backgroundImage: /assets/bg/soyuz.jpg
