@@ -9,14 +9,6 @@
 
 A collection of thoughts/snippets of code that I have acquired:
 
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-</ul>
-
 {% for post in site.posts %}
 <div class="post-preview">
   <a href="{{ post.url }}">
@@ -24,7 +16,7 @@ A collection of thoughts/snippets of code that I have acquired:
   <h4 class="post-subtitle">{{ post.excerpt }}</h4>
   </a>
   <p class="post-meta">
-    {{ post.date }}
+    {{ post.date | date: "%-d %B %Y" }}
   </p>
   </div>
 <hr>
