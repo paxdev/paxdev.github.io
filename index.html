@@ -23,6 +23,9 @@ A collection of thoughts/snippets of code that I have acquired:
   <h2 class="post-title">{{ post.title }}</h2> 
   <h4 class="post-subtitle">{{ post.excerpt }}</h4>
   </a>
-  <hr>
-</div>
+  <p class="post-meta">
+    {{ post.date }}
+  </p>
+  </div>
+<hr>
 {% endfor %}
