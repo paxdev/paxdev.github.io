@@ -16,7 +16,11 @@ A collection of thoughts/snippets of code that I have acquired:
   <h4 class="post-subtitle">{{ post.excerpt }}</h4>
   </a>
   <p class="post-meta">
-    {{ post.date | date: "%-d %B %Y" }}
+    {{ post.date | date_to_string }}: Tags -
+    {% for tag in post.tags %}
+       {% capture tag_name %}{{ tag }}{% endcapture %}
+       <a href="/tag/{{ tag_name }}"><code class="highlighter-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a>
+    {% endfor %}
   </p>
   </div>
 <hr>
