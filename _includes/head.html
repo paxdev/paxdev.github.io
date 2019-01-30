@@ -3,7 +3,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="Paul Axon">
-    <title>PaxDev - journeys in code</title>
+    <title>PaxDev
+    {% if page.title != ""%}
+        - {{ page.title }}
+    {% endif %}
+    </title>
 
     <!-- Bootstrap core CSS -->
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
