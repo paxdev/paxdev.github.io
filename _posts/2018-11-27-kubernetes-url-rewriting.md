@@ -2,6 +2,8 @@
   title: Kubernetes Ingress URL Rewriting.
   header:
     subheading: Rewrite your Ingress URLs to match your application
+  tags:
+    - kubernetes
 ---
 
 # Relative URLS
