@@ -1,7 +1,11 @@
 ---
   title: Run an Azure Agent in Docker
   header:
-    subheading: Run an Azure Pipeline Agent as a Docker container
+    subheading: Run an Azure DevOps Pipeline Agent as a Docker container
+  tags:
+    - azure-devops
+    - docker
+    - devops   
 ---
 
 There are a number of benefits of running a dedicated Agent for your Azure Pipelines.
