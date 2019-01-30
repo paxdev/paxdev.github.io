@@ -1,5 +1,9 @@
 ---
   title: Kubernetes Monitoring
+  categories:
+    - link
+  tags:
+    - kubernetes
 ---
 
 Useful blog series:
