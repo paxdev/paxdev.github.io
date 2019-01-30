@@ -1,7 +1,12 @@
 ---
   title: Publish Docker Build Test Results
   header:
-    subheading: Publishing Test Results from a dotnetcore Docker Build in Azure Pipelines
+    subheading: Publishing Test Results from a dotnetcore Docker Build in Azure Devops
+  tags:
+    - tdd
+    - azure-devops
+    - docker
+    - dotnetcore
 ---
 
 Whilst building our dotnetcore apps inside a container gives us all sorts of advantages including repeatable builds and caching, 
