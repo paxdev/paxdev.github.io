@@ -2,6 +2,10 @@
   title: NuGet with Docker Builds
   header:
     subheading: Access Private NuGet Feed In Local Docker Build
+  tags:
+    - nuget
+    - docker
+    - azure-devops
 ---
 
 A Docker build does not necessarily run in a context that is authorised to access a private NuGet feed, 
