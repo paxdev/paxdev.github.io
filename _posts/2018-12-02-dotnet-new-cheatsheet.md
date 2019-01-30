@@ -3,6 +3,10 @@
   
   header:
     subheading: Cheatsheet for creating dotnet new templates
+  
+  tags:
+    - dotnetcore
+    - nuget
 ---
 
 ## Install a template from a file:
