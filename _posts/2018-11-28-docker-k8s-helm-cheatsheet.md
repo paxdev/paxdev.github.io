@@ -1,5 +1,9 @@
 ---
   title: Docker/Kubernetes/Helm Cheat-Sheet
+  tags:
+    - docker
+    - kubernetes
+    - helm
 ---
 
 # Docker
