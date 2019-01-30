@@ -1,5 +1,10 @@
 ---
   title: Creating a Helm Release for Kubernetes
+  tags:
+    - helm
+    - docker
+    - kubernetes
+    - devops
 ---
 
 To deploy a web application to Kubernetes using Helm, use the following steps (assuming you have already containerised your application.)
