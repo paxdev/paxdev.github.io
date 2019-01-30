@@ -9,8 +9,7 @@
 
 A collection of thoughts/snippets of code that I have acquired:
 
-{% for post in site.posts 
-| where_exp: "item", "item.categories contains 'link'"  %}
+{% for post in site.posts %}
 <div class="post-preview">
   <a href="{{ post.url }}">
   <h2 class="post-title">{{ post.title }}</h2> 
