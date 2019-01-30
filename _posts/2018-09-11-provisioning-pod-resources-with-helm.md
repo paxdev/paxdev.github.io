@@ -6,6 +6,7 @@ categories:
 tags:
   - kubernetes
   - helm
+  - docker
 ---
 
 In the `values.yaml` file, there is an entry
