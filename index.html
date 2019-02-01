@@ -8,7 +8,7 @@
 ---
 
 A collection of thoughts/snippets of code that I have acquired:
-{% if post.categories == empty %}<div>No categories!</div>{% endif %}
+{% unless post.categories == empty %}<div>Categories!</div>{% endunless %}
 {% for post in site.posts %}
 <div class="post-preview">
   <a href="{{ post.url }}">
