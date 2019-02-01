@@ -10,6 +10,10 @@
 A collection of thoughts/snippets of code that I have acquired:
 
 {% for post in site.posts %}
+{% for category in post.categories %}
+{% capture cn %}<strong>{{ cn }}</strong> {% endcapture %}
+
+{% endfor %}
 <div class="post-preview">
   <a href="{{ post.url }}">
   <h2 class="post-title">{{ post.title }}</h2> 
