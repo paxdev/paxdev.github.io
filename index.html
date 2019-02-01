@@ -9,7 +9,7 @@
 
 A collection of thoughts/snippets of code that I have acquired:
 {% for post in site.posts %}
-{% unless post.categories == empty %}<div>Categories!</div>{% endunless %}
+{% unless post.categories contains 'link' %}<div>Categories!</div>{% endunless %}
 <div class="post-preview">
   <a href="{{ post.url }}">
   <h2 class="post-title">{{ post.title }}</h2> 
