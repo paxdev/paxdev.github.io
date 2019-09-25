@@ -3,7 +3,9 @@
   categories:
     - link
   tags:
-    - dotnetcore, asp, csharp
+    - dotnetcore
+      asp
+      csharp
 ---
 
 An elegant solution for registering Decorator classes in .Net Core Dependency Injection:
