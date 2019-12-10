@@ -1,7 +1,7 @@
 ---
   title: MSpec Fakes with Async Await
   header:
-    subheading: Reducing boilerplate code 
+    subheading: Reducing boilerplate code and clarifying intent
   categories:
     - csharp
   tags:
