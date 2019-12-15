@@ -38,12 +38,24 @@ We tell it the *member* type we are mapping from and the *member* type we are ma
 ```csharp
     public class DateConverter : ITypeConverter<DateModel, DateTime>
     {
-        public DateTime Convert(DateModel source, DateTime destination, ResolutionContext context) 
-            => new DateTime(source.Year, source.Month, source.Day, 0, 0, 0, DateTimeKind.Utc);
+        public DateTime Convert
+        (
+            DateModel source, 
+            DateTime destination, 
+            ResolutionContext context
+        ) 
+        => new DateTime
+        (
+            source.Year, 
+            source.Month, 
+            source.Day, 
+            0, 0, 0, 
+            DateTimeKind.Utc
+        );
     }
 ```
 
-    A couple of things to note here:
+A couple of things to note here:
 1. We have access to the destination member.
 1. We have access to the `ResolutionContext`.
     This can be used to pass data from the mapping configuration to the `Converter` and to gain access to the `Mapper` itself. I can't think of a good reason you would ever want to do that however, unless you want to give your future self a huge headache when trying to maintain the code!
@@ -53,8 +65,19 @@ I see very few use cases for the additional parameters, and, personally, I think
 ```csharp
     public class DateConverter : ITypeConverter<DateModel, DateTime>
     {
-        public DateTime Convert(DateModel source, DateTime _, ResolutionContext __) 
-            => new DateTime(source.Year, source.Month, source.Day, 0, 0, 0, DateTimeKind.Utc);
+        public DateTime Convert
+        (
+            DateModel source, 
+            DateTime _, ResolutionContext __
+        ) 
+        => new DateTime
+        (
+            source.Year, 
+            source.Month, 
+            source.Day, 
+            0, 0, 0, 
+            DateTimeKind.Utc
+        );
     }
 ```
 
@@ -89,8 +112,12 @@ As before, we tell it the *member* type we are mapping from and the *member* typ
 ```csharp
 public class MobileConverter : IValueConverter<TelephoneNumbers, string>
 {
-    public string Convert(TelephoneNumbers sourceMember, ResolutionContext _)
-        => sourceMember.Mobile;
+    public string Convert
+    (
+        TelephoneNumbers sourceMember, 
+        ResolutionContext _
+    )
+    => sourceMember.Mobile;
 }
 ```
 
@@ -133,10 +160,17 @@ In this scenario we use an `IValueResolver<TSource, TDestination, TDestMember>`.
 I have never needed to access anything other than the `TSource`, so as before I adopt an "underscore syntax" so I can easily see which of the input parameters I am interested in:
 
 ```csharp
-public class FullNameResolver : IValueResolver<CustomerModel, Customer, string>
+public class FullNameResolver 
+    : IValueResolver<CustomerModel, Customer, string>
 {
-    public string Resolve(CustomerModel source, Customer _, string __, ResolutionContext ___) 
-        => $"{source.FirstName} {source.LastName}";
+    public string Resolve
+    (
+        CustomerModel source, 
+        Customer _, 
+        string __, 
+        ResolutionContext ___
+    ) 
+    => $"{source.FirstName} {source.LastName}";
 }
 ```
 
