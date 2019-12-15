@@ -24,12 +24,12 @@ I will assume that you are using `Dependency Injection` to configure/resolve `Au
 Imagine you have a custom `DateModel` that contains a Day, Month and Year. You know that you will always want this to be converted to a `DateTime`.
 
 ```csharp
-    public class DateModel
-    {
-        public int Day { get; set; }
-        public int Month { get; set; }
-        public int Year { get; set; }
-    }
+public class DateModel
+{
+    public int Day { get; set; }
+    public int Month { get; set; }
+    public int Year { get; set; }
+}
 ```
 
 In this scenario we use an `ITypeConverter<TSource, TDestination`. 
@@ -37,23 +37,23 @@ In this scenario we use an `ITypeConverter<TSource, TDestination`.
 We tell it the *member* type we are mapping from and the *member* type we are mapping to and supplu a `Convert` method that tells us how to convert from the Source type to the Destination type.
 
 ```csharp
-    public class DateConverter : ITypeConverter<DateModel, DateTime>
-    {
-        public DateTime Convert
-        (
-            DateModel source, 
-            DateTime destination, 
-            ResolutionContext context
-        ) 
-        => new DateTime
-        (
-            source.Year, 
-            source.Month, 
-            source.Day, 
-            0, 0, 0, 
-            DateTimeKind.Utc
-        );
-    }
+public class DateConverter : ITypeConverter<DateModel, DateTime>
+{
+    public DateTime Convert
+    (
+        DateModel source, 
+        DateTime destination, 
+        ResolutionContext context
+    ) 
+    => new DateTime
+    (
+        source.Year, 
+        source.Month, 
+        source.Day, 
+        0, 0, 0, 
+        DateTimeKind.Utc
+    );
+}
 ```
 
 A couple of things to note here:
@@ -64,22 +64,22 @@ A couple of things to note here:
 I see very few use cases for the additional parameters, and, personally, I think this is a violation of the `Interface Segregation Principle` since I am forced to depend on some parameters I won't use. To make this clear, I usually borrow from the syntax for `discard parameters` and use underscores to show I will not be using the parameters. *(Note: the parameters are not actually discarded. I just use this style for clarity.)*
 
 ```csharp
-    public class DateConverter : ITypeConverter<DateModel, DateTime>
-    {
-        public DateTime Convert
-        (
-            DateModel source, 
-            DateTime _, ResolutionContext __
-        ) 
-        => new DateTime
-        (
-            source.Year, 
-            source.Month, 
-            source.Day, 
-            0, 0, 0, 
-            DateTimeKind.Utc
-        );
-    }
+public class DateConverter : ITypeConverter<DateModel, DateTime>
+{
+    public DateTime Convert
+    (
+        DateModel source, 
+        DateTime _, ResolutionContext __
+    ) 
+    => new DateTime
+    (
+        source.Year, 
+        source.Month, 
+        source.Day, 
+        0, 0, 0, 
+        DateTimeKind.Utc
+    );
+}
 ```
 
 From within my Mapping Configuration I can map like so:
@@ -98,12 +98,12 @@ An `ITypeConverter` is useful whwn you know that you will always map a given sou
 Imagine you have a `TelephoneNumbers` type that contains Mobile and Landline numbers:
 
 ```csharp
-    public class TelephoneNumbers
-    {
-        public string Mobile { get; set; }
+public class TelephoneNumbers
+{
+    public string Mobile { get; set; }
 
-        public string Landline { get; set; }
-    }
+    public string Landline { get; set; }
+}
 ``` 
 
 In this scenario we use an `IValueConverter<TSource, TDestination>`. 
