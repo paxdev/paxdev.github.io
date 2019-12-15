@@ -180,7 +180,7 @@ This is now classed as a `Resolver` rather than a `Converter` (presumably becaus
 .ForMember
 (
     dest => dest.FullName,
-    opts => opts.MapFrom<FullNameConverter>()
+    opts => opts.MapFrom<FullNameResolver>()
 );
 ```
 
