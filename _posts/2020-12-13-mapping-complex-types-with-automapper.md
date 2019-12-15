@@ -184,7 +184,7 @@ This is now classed as a `Resolver` rather than a `Converter` (presumably becaus
 );
 ```
 
-### ``IMemberValueResolver<in TSource, in TDestination, in TSourceMember, TDestMember>` Fully control mapping
+### `IMemberValueResolver<in TSource, in TDestination, in TSourceMember, TDestMember>` Fully control mapping
 
 If you really want to take over the mapping then the `IMemberValueResolver<TSource, TDestination, TSourceMember, TDestMember>` is available.
 
