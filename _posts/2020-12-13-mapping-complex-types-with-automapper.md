@@ -7,7 +7,7 @@
   tags:
     - csharp
     - automapper
-  permalink: automapper/complex-mapping/
+  permalink: /automapper/complex-mapping/
 ---
 
 
