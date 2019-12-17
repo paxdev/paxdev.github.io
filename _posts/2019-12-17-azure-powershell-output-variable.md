@@ -3,7 +3,7 @@
   categories:
     - devops
   tags:
-    - azuredevops
+    - azure-devops
     - devops
   permalink: /azure-devops/output-variables/
 ---
@@ -30,7 +30,7 @@ Note that the variable values will be set *for the scope of the job only*. To se
        Write-Host "##vso[task.setvariable variable=MyVariableName;isOutput=true]My Value"  
    ```
 
-   Make sure to expand `Output Variables` and set a `Reference name`
+   Make sure to expand the `Output Variables` section and set a `Reference name`
 
    You can now reference your variable as `$(MyReferenceName.MyVariableName)`
 
