@@ -5,7 +5,6 @@
   tags:
     - nuget
     - docker
-    - azure-devops
     - devops
 ---
 
