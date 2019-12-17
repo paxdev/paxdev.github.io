@@ -3,7 +3,7 @@
   categories:
     - devops
   tags:
-    - azure-devops
+    - azuredevops
     - devops
   permalink: /azure-devops/output-variables/
 ---
