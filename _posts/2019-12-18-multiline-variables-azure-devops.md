@@ -4,6 +4,7 @@
     - azure-devops
   tags:
     - azure-devops
+  permalink: /azure-devops/multiline-variables/
 ---
 
 I was surprised to discover that you cannot write a multiline value to an Azure DevOps Pipeline Variable from a Powershell script.
