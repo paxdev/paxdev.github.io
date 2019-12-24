@@ -16,7 +16,7 @@ It can be a little tricky to get this working out the box, but this post will wa
 
 1. We'll need some way of persisting variables between jobs in a Stage and this is not supported out of the box in a classic pipeline. 
    
-   Before starting, head over to [SetReleaseVariable on GitHub](https://github.com/paxdev/SetReleaseVariable) and follow the instrictions to import the `Set Release Variable` task.
+   Before starting, head over to [SetReleaseVariable on GitHub](https://github.com/paxdev/SetReleaseVariable) and follow the instructions to import the `Set Release Variable` task.
 
 ## Run Pre-Deployment Checks
 
