@@ -2,6 +2,7 @@
   title: Conditional Workflow in Azure Release Pipeline
   header:
     subheading: Run jobs conditionally with  categories
+  categories:
     - azure-devops
   tags:
     - azure-devops
