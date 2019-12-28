@@ -129,6 +129,6 @@ An interesting consequence of this approach is that the compiler can now infer t
             .ReturnAsync(new Valid());
 ```
 
-Obviously, this will not help us if we want to test more sophisticated bahaviour such as passing `CancellationToken` or `IProgress`, but in those cases, we are likely to need bespoke setup for each subject under test anyway.
+Obviously, this will not help us if we want to test more sophisticated behaviour such as passing `CancellationToken` or `IProgress`, but in those cases, we are likely to need bespoke setup for each subject under test anyway.
 
 The full source code for this is on [GitHub](https://github.com/paxdev/PaxDev.Machines.Fakes.Async) or can be [downloaded from NuGet](https://www.nuget.org/packages/PaxDev.Machine.Fakes.Async/) (Package Name: `PaxDev.Machine.Fakes.Async`)
