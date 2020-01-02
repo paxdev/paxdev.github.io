@@ -1,0 +1,50 @@
+---
+  title: Azure Pipeline Variables
+  categories:
+    - azure-devops
+  tags:
+    - azure-devops
+---
+
+Setting, using and scoping variables within Azure Pipelines can be a little tricky. In this post I examine how and where to set variables, examine their scope and demonstrate how to use, combine and share them between parts of the pipeline.
+
+Note, the scope of this article is variables in the `Classic` pipeline, not the `YAML` pipeline.
+
+## Pipeline Variables
+
+From the `Variables` tab of your Pipeline definition click `Pipeline Variables`
+
+![Pipeline Variables](/assets/posts/PipelineVariables.png)
+
+Here you can maintain Variables that are scoped to a particular stage of your Pipeline.
+
+The values that are set here are available throughout this particular pipeline. However, it seems that for each job you get a copy of all the variables, so if you update a value within a job, that value persists only within the scope of the job. To persist it beyond that job, you need to see [Persisting Values Between Jobs](#persisting-values-between-jobs)
+
+You can specify that Variables are Settable at Queue Time, although I prefer to set those kind of values based on Tags or Source Code Branches.
+
+If you have a secret variable, you can use the Padlock icon to encrypt the value. It is now "Write-Only" in that through the UI you can now only write a new value. 
+
+When the Variable is used in a Task, the logs will obfuscate the value, so it is not exposed.
+
+![Secret Variables](/assets/posts/SecretVariable.png)
+
+### Scoping Variables to a Release Stage
+
+If you navigate to the 'Pipeline Variables' page in a Release Pipeline you will notice that you now have a `Scope` column. 
+
+![Release Pipeline Variables](/assets/posts/PipelineReleaseVariables.png)
+
+This defaults to `Release` which means the value is accessible to all stages in the Release. You can set it to be visible only to one scope in the stage, but that stage must have been defined within the Pipeline first. 
+
+Once you have set a new scope for a Variable you can use the `Grid` view to see and edit the values for each scope side by side.
+
+![Scoped Variables](/assets/posts/ScopedVariables.png)
+
+Unfortunately, there are a number of annoying limititations to the Scoped Variables
+
+1. You can't add a new Variable in `Grid` view.
+1. You can't add a new Scope to a Variable in `Grid` view.
+1. You can't set the Scope to a stage that does not exist yet.
+1. You can't set the Scope of a Variable to multiple stages.
+
+### Persisting Values Between Jobs
