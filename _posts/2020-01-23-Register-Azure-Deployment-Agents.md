@@ -42,3 +42,10 @@ I find the following two snippets cover most bases
 
 **NB**
 If you are using the provided script, simply replace the contents of `.\config.cmd ... ;`
+
+You can see all the possible switches using 
+
+```powershell
+.\config.cmd --help
+```
+
