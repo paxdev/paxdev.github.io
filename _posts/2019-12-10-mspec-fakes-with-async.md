@@ -8,6 +8,7 @@
     - csharp
     - tdd
     - mspec
+  permalink: /mspec/async-mspec-fakes/
 ---
 
 In general, the C# language gives us lots of simple constructs to write asynchronous code simply and elegantly, but unfortunately when we come to write unit tests we can find ourselves having to write ugly, unintuitive boilerplate code in order to get our async code to run in MSpec Fakes.
