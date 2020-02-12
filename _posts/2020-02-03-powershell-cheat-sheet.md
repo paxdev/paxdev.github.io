@@ -26,3 +26,4 @@
 * `-in, -notin, -contains, -notcontains` - containment
 * `$( )` - subexpression - evaluate the contents of the brackets
 * `1..5` - range operator
+* `Get-Childitem -Path Env:* | Sort-Object Name` - list out env vars
