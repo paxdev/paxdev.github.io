@@ -76,7 +76,7 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
   When you've finished working on your branch and you want to create a Pull Request:
 
   ```shell
-  git config --global alias.pull-request '!branch=$(git rev-parse --abbrev-ref HEAD) && git remote get-url origin | sed "s/\.git$/\/pull\/new\/$branch/" | start $(cat)'
+  git config --global alias.pull-request '!branch=$(git rev-parse --abbrev-ref HEAD) && git remote get-url origin | sed "s/\\.git$/\\/pull\\/new\\/$branch/" | start $(cat)'
   ```
 
   Usage `git pull-request`
