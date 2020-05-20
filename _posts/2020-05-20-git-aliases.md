@@ -3,6 +3,7 @@
   categories:
     - git
   tags:
+    - git
     - productivity
 ---
 
@@ -45,19 +46,19 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
 
   Git will expannd the command in place so that anything I type after the alias is treated as part of the command. In the above example it's as though I had typed `commit -m "my commit message"`.
 
-* Getting clean `master`.
+* Cleaning up and starting afresh
 
-  I often find I want to go back to `master`, get latest and just clean up. E.g. after I've finished working on a branch.
+  When I've finished working on a branch I want to go back to `master`, get latest and clean up any stray non-tracked files. 
 
   ```shell
   git config --global alias.get-clean-master '!git checkout master && git pull && git clean -xfd -e .vs/'
   ```
 
-  You can now use `git get-clean-master`.
+  Usage `git get-clean-master`.
 
   Note the `-e .vs/` is a Visual Studio only workaround for some files that Visual Studio takes an exclusive lock on and cannot be deleted without closing Visual Studio. Omit this part if you don't use Visual Studio.
 
-* Getting latest from `master`
+* Getting latest from `master` into branch
   
   When I'm working in a branch and someone has updated `master` I want to pull their changes in to my branch. 
   I normally want to make sure my local `master` is updated with the changes too so I don't have to remember to do that later.
@@ -69,3 +70,15 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
   So now, from a branch you can type `git get-latest` and it will switch to `master`, do a `git pull`, switch back to your branch merging from `master` and accepting the default commit message
 
   Note the use of single `'` quotes above. If I had used double `"` quotes then `git` would have evaluated what's inside the double quotes, i.e. the `$(git rev-parse --abbrev-ref HEAD)` and `$branch`. At the point of execution they would have evaluated to `null` and I would have got unexpected blank spaces.
+
+* Starting a GitHub Pull Request
+
+  When you've finished working on your branch and you want to create a Pull Request:
+
+  ```shell
+  git config --global alias.pull-request 'branch=$(git rev-parse --abbrev-ref HEAD) && git remote get-url origin | sed "s/\.git$/\/pull\/new\/$branch/" | start $(cat)'
+  ```
+
+  Usage `git pull-request`
+
+  This will assemble the correct `GitHub` URL and launch it in the browser. **Caveat this is only tested on Windows!**
