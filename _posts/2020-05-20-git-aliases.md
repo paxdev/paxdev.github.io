@@ -81,4 +81,4 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
 
   Usage `git pull-request`
 
-  This will assemble the correct `GitHub` URL and launch it in the browser. **Caveat this is only tested on Windows!**
+  This will assemble the correct `GitHub` URL to create a Pull Request and launch it in the browser. **Caveat this is only tested on Windows!**
