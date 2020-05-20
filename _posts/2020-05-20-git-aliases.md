@@ -33,10 +33,6 @@ Under the hood, `git` has updated my `.gitconfig` and added an `alias` section a
 Of course this in and of itself is of limited use except for shortening common commands or giving them more memorable names.
 However, if you add a `!` at the beginning of your `alias` you are telling `git` to start a `Shell` where you can start using `bash`.
 
-Note that you need to be very careful about the use of single `'` and double `"` quotes. If you use double `"` quotes then `git` will try to evaluate what's in your alias and you may find you get unexpected behaviour. 
-
-E.g. trying to create an alias that contains `"//some commands//... $someVar ...//some other comands//"` will cause `git` to evaluate `$someVar`. So if `$someVar` currently equals `someVal` you would get an `alias` of  `"//some commands//... someVal ...//some other comands//"`. Typically at the point of creating the `alias` `$someVar` will be undefined so you'll just get blank sections in your `alias`.
-
 * Committing everything
 
   I pretty much always want to commit all of my unstaged files - otherwise how do I know if I've missed something crucial from my commit?
@@ -44,6 +40,10 @@ E.g. trying to create an alias that contains `"//some commands//... $someVar ...
   ```shell
   git config --global alias.commit-all '!git add -A && git commit -m'
   ```
+
+  I can now type, e.g. `git commit-all "add a commit-all alias"`.
+
+  Git will expannd the command in place so that anything I type after the alias is treated as part of the command. In the above example it's as though I had typed `commit -m "my commit message"`.
 
 * Getting clean `master`.
 
@@ -55,7 +55,7 @@ E.g. trying to create an alias that contains `"//some commands//... $someVar ...
 
   You can now use `git get-clean-master`.
 
-  Note the `-e .vs/` is a Visual Studio only workaround for some files that Visual Studio takes an exclusive lock on and cannot be deleted without closing Visual Studio. Omit this part if you are not using Visual Studio.
+  Note the `-e .vs/` is a Visual Studio only workaround for some files that Visual Studio takes an exclusive lock on and cannot be deleted without closing Visual Studio. Omit this part if you don't use Visual Studio.
 
 * Getting latest from `master`
   
@@ -67,3 +67,5 @@ E.g. trying to create an alias that contains `"//some commands//... $someVar ...
   ```
 
   So now, from a branch you can type `git get-latest` and it will switch to `master`, do a `git pull`, switch back to your branch merging from `master` and accepting the default commit message
+
+  Note the use of single `'` quotes above. If I had used double `"` quotes then `git` would have evaluated what's inside the double quotes, i.e. the `$(git rev-parse --abbrev-ref HEAD)` and `$branch`. At the point of execution they would have evaluated to `null` and I would have got unexpected blank spaces.
