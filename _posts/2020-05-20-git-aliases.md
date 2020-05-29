@@ -60,8 +60,19 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
 
 * **Getting latest from `master` into branch**
   
-  When I'm working in a branch and someone has updated `master` I want to pull their changes in to my branch. 
-  I normally want to make sure my local `master` is updated with the changes too so I don't have to remember to do that later.
+  When I'm working in a branch and someone has updated `master` I want to pull their changes in to my branch.
+
+  The simplest way to do that is with 
+
+  ```shell
+  git config --global alias.get-latest '!git fetch origin && git merge origin master'
+  ```
+
+  Then `git get-latest` will fetch the latest changes from `origin` and merge them into my branch. 
+
+  Note that when you switch to your local `master` it will not be up to date with the latest changes from `origin`. 
+
+  I normally want to make sure my local `master` is updated with the changes too so I don't have to remember to do that later, so a more complex command is.
   
   ```shell
   git config --global alias.get-latest '!branch=$(git rev-parse --abbrev-ref HEAD) && git checkout master && git pull && git checkout $branch && git merge master --no-edit'
@@ -82,3 +93,11 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
   Usage `git pull-request`
 
   This will assemble the correct `GitHub` URL to create a Pull Request and launch it in the browser. **Caveat this is only tested on Windows!**
+
+* **Starting a GitLab Pull Request**
+
+  The version of the above for GitLab is:
+
+  ```shell
+  git config --global alias.pull-request '!branch=$(git rev-parse --abbrev-ref HEAD | sed \"s//%2f/g\") && git remote get-url origin | sed \"/\.git$//\" | sed \"s/$/\/-\/merge_requests\/new?merge_request%5Bsource_branch%5D=/\" | sed \"s|$|${branch}|\" | start $(cat)'
+  ```
