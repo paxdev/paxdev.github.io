@@ -68,11 +68,9 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
   git config --global alias.get-latest '!git fetch origin && git merge origin master'
   ```
 
-  Then `git get-latest` will fetch the latest changes from `origin` and merge them into my branch. 
-
-  Note that when you switch to your local `master` it will not be up to date with the latest changes from `origin`. 
-
-  I normally want to make sure my local `master` is updated with the changes too so I don't have to remember to do that later, so a more complex command is.
+  Then `git get-latest` will fetch the latest changes from `origin` and merge them into my branch. The problem with this approach is that my local copy of `master` is still behind `origin`, so when I switch back I won't have the latest changes.
+  
+  To make sure my local `master` is updated with the changes too so I don't have to remember to do that later, a more complex command is.
   
   ```shell
   git config --global alias.get-latest '!branch=$(git rev-parse --abbrev-ref HEAD) && git checkout master && git pull && git checkout $branch && git merge master --no-edit'
@@ -94,10 +92,12 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
 
   This will assemble the correct `GitHub` URL to create a Pull Request and launch it in the browser. **Caveat this is only tested on Windows!**
 
-* **Starting a GitLab Pull Request**
+* **Starting a GitLab Merge Request**
 
   The version of the above for GitLab is:
 
   ```shell
-  git config --global alias.pull-request '!branch=$(git rev-parse --abbrev-ref HEAD | sed \"s//%2f/g\") && git remote get-url origin | sed \"/\.git$//\" | sed \"s/$/\/-\/merge_requests\/new?merge_request%5Bsource_branch%5D=/\" | sed \"s|$|${branch}|\" | start $(cat)'
+  git config --global alias.merge-request '!branch=$(git rev-parse --abbrev-ref HEAD | sed \"/\//%2f/g\") && git remote get-url origin | sed \"s/\.git$//\" | sed \"s/$/\/-\/merge_requests\/new?merge_request%5Bsource_branch%5D=/\" | sed \"s|$|${branch}|\" | start $(cat)'
   ```
+
+  Note that I have named the two commands differently in case you use GitLab and GitHub locally. 
