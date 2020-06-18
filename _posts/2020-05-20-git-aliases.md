@@ -95,6 +95,16 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
 
   Note also the use of single `'` quotes above. If I had used double `"` quotes then `git` would have evaluated what's inside the double quotes, i.e. the `$(git current-branch)` and `$branch`. At the point of execution (i.e. when creating the alias) they would have evaluated to `null` and I would have got unexpected blank spaces.
 
+* **Setting Upstrem when pushing**
+
+  I invariably forget to set the upstream when creating a new local branch, so I can do
+
+  ```shell
+  git config --global alias.push-branch '!branch=$(git current-branch) && git push -u origin $branch'
+  ```
+
+  and now `git push-branch` will automatically set the upstream when I push a branch.
+
 * **Starting a GitHub Pull Request**
 
   When you've finished working on your branch and you want to create a Pull Request:
