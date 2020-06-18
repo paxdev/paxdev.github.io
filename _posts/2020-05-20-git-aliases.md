@@ -1,10 +1,13 @@
 ---
-  title: Git Aliases
+  title: Levelling up Git with Aliases
+  header:
+    subheading: Save time and automate common tasks with Git Aliases
   categories:
     - git
   tags:
     - git
     - productivity
+  permalink: /git/aliases
 ---
 
 # Create a shortcut
