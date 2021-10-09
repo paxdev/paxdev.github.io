@@ -41,11 +41,21 @@ scp your-user@your-cluster:~/.kube/config ./.kube
 
 In my case I also had to edit this file to replace my control-node's *internal* IP address (that it uses to connect to the worker nodes) to the *external* address it uses to connect to my router.
 
-Finally you can check everything is working by checking the running nodes:
+You can check everything is working by checking the running nodes:
 
 ```powershell
 kubectl get nodes
 ```
+
+By default `kubectl edit` will use `Vim` as the editor. For bonus points you can configure an editor of your choice.
+This is done by setting the `KUBE_EDITOR` environment variable. 
+To use `VSCode` (assuming it is already in the `PATH`):
+
+```powershell
+[System.Environment]::SetEnvironmentVariable('KUBE_EDITOR','code -w')
+```
+
+The `-w` flag is an abbreviation of `--wait` and tells VS Code to wait for the file to be closed before returning control back to `kubectl`
 
 #### Gotcha
 
