@@ -57,16 +57,11 @@ To use `VSCode` (assuming it is already in the `PATH`):
 
 The `-w` flag is an abbreviation of `--wait` and tells VS Code to wait for the file to be closed before returning control back to `kubectl`
 
-#### Gotcha
-
-There is a possible gotcha. If you have previously installed `Docker` this also comes with a version of `kubectl` and you may find that the `Docker` folder is before the `chocolatey` folder in your `PATH`. This means that any Command Line will search the `Docker` folder first for `kubectl` and likely try to use the incorrect version leading to errors that look like:
-
-```shell
-error: schemaError(x.y.z): invalid object does not have additional properties
-```
-
-You can easily check this by using `kubectl version`. You will likely see that the client version is much lower than the server version.
-
-To solve the problem edit your environment variables and ensure that in the `System Path` the `$env:ProgramData\chocolatey\bin` appears before the Docker folder (in my case `$env:ProgramFiles\Docker\Docker\Resources\bin`).
-
-You will now need to close and re-open any shells to get the correct updated `PATH`.
+  > #### Gotcha
+  > There is a possible gotcha. If you have previously installed `Docker` this also comes with a version of `kubectl` and you may find that the `Docker` folder is before the `chocolatey` folder in your `PATH`. This means that any Command Line will search the `Docker` folder first for `kubectl` and likely try to use the incorrect version leading to errors that look like:
+  > ```shell
+  >    error: schemaError(x.y.z): invalid object does not have additional properties
+  >  ```
+  > You can easily check this by using `kubectl version`. You will likely see that the client version is much lower than the server version.
+  > To solve the problem edit your environment variables and ensure that in the `System Path` the `$env:ProgramData\chocolatey\bin` appears before the Docker folder (in my case `$env:ProgramFiles\Docker\Docker\Resources\bin`).
+  > You will now need to close and re-open any shells to get the correct updated `PATH`.
