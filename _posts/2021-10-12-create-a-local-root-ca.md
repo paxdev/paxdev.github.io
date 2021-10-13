@@ -32,11 +32,11 @@ If not you can use [chocolatey](https://chocolatey.org/).
 choco install openssl
 ```
 
-You'll now need to close and re-open your `PowerShell` window to ensure that you get the updated path. (I find `refreshenv` does not work reliably for me.)
+You'll now need to close and re-open your `PowerShell` window to ensure that you get the updated path. *(I find `refreshenv` does not work reliably for me.)*
 
 ## Generating the Root CA
 
-You may find it helpful to create a folder to work in. I'm working on my secondary HDD on `D:\`. Adjust your patch accordingly
+You may find it helpful to create a folder to work in. I'm working on my secondary HDD on `D:\`. Adjust your path accordingly
 
 ```shell
 md \certificates
@@ -74,7 +74,9 @@ Organizational Unit Name (eg, section) []:PaxDev
 Common Name (e.g. server FQDN or YOUR name) []:PaxDev
 ```
 
-We can now import the `CA` to the `Local Machine` store. From an **elevated** `PowerShell` prompt:
+We can now import the `CA` to the `LocalMachine\Root` *(`Local Computer\Trusted Root Certification Authorities` in the Certificates MMC snap-in)*. 
+
+From an **elevated** `PowerShell` prompt:
 
 ```powershell
 Import-Certificate root-ca.crt -CertStoreLocation Cert:\LocalMachine\Root\ -Verbose
@@ -175,7 +177,7 @@ openssl pkcs12 -export -out localhost-dev.pfx -inkey localhost-dev.key -in local
 
 You will be asked to confirm the `SSL` Key pass phrase. Leave the export password blank.
 
-Finally we need to import the certificate to the local store
+Finally we need to import the certificate to the `LocalMachine\My` *(`Local Computer\Personal` in the Certificates MMC snap-in)* store
 
 ```powershell
 Import-PfxCertificate localhost-dev.pfx -CertStoreLocation Cert:\LocalMachine\My\ -Verbose
