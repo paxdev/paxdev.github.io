@@ -8,8 +8,6 @@
   permalink: /security/create-a-local-root-ca/
 ---
 
-## Introduction
-
 In order to avoid warning messages about self-signed certificates when developing web applications on a local machine you can create your own devlopment `Root Certificate Authority`.
 
 By trusting this `Root CA` you then implicitly trust any certificates that it has signed, so you don't need to keep adding certificates to your local store as long as they were signed by the `Root CA`.
