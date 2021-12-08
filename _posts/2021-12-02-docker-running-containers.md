@@ -138,7 +138,7 @@ In order to interact usefully with the container we need a way to help it intera
 We use the `-p host-port:container-port` parameter to expose ports on the container to the host OS. Running ...
 
 ```
-docker run -p 8080:80 nginx
+docker run --rm -p 8080:80 nginx
 ```
 
 ... tells Docker to expose port 80 on the container to port 8080 in our host system. We can now navigate to `http://localhost:8080/` to see the default `nginx` launch page and verify that `nginx` is indeed running.
@@ -151,7 +151,7 @@ I can use the `-v host-dir:container-dir` parameter to mount a folder in my loca
 
 ```
 # In the host
-docker run -v c:\Users\demo:/mnt/demo -it nginx /bin/bash
+docker run -v c:\Users\demo:/mnt/demo --rm -it nginx /bin/bash
 
 # In the container
 ls /mnt/demo
@@ -163,7 +163,7 @@ I can set environment variables using `-e VARNAME1 -e VARNAME2=value`
 
 ```
 # In the host
-docker run -e MYVAR=hello -it nginx /bin/bash
+docker run --rm -e MYVAR=hello -it nginx /bin/bash
 
 # In the container
 echo $MYVAR
