@@ -1,0 +1,37 @@
+{
+	"Front matter": {
+		"scope": "markdown",
+		"prefix": "fm",
+		"body": [
+			"---",
+			"title: $1",
+			"header:",
+			"  subheading: $2",
+			"  backgroundImage: $3",
+			"  overlay: true",
+			"categories:",
+			"  - $4",
+			"tags:",
+			"  - $5",
+			"---",
+		],
+		"description": "Create front matter"
+	},
+	"Tag Front Matter": {
+		"scope": "markdown",
+		"prefix": "tagfm",
+		"body": [
+			"---",
+			"layout: tagpage",
+			"title: 'Tag: $1'",
+			"tag: $1",
+			"---"
+		]
+	},
+	"Image": {
+		"scope": "markdown",
+		"prefix": "img",
+		"body": "![$1]($2)",
+		"description": "Insert image"
+	}
+}
