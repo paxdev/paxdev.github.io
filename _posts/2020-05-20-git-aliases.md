@@ -117,6 +117,14 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
 
   This will assemble the correct `GitHub` URL to create a Pull Request and launch it in the default browser. **Caveat this is only tested on Windows!**
 
+* **Starting a BitBucket Pull Request**
+
+  The version of the above for BitBucket is:
+  
+  ```shell
+  git config --global alias.pull-request '!branch=$(git current-branch) && git remote get-url origin | sed \"s/:/\//\" | sed \"s/git@/https:\/\//\" | sed \"s/\\.git$/\/pull-requests\/new?source=$branch/\"  | start $(cat)'
+  ```
+
 * **Starting a GitLab Merge Request**
 
   The version of the above for GitLab is:
