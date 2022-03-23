@@ -18,7 +18,7 @@ It will also enable us to run multiple potentially incompatible versions of tool
 
 Let's imagine you've been tasked with updating a website that was built with Angular CLI version 1 on Node 6.9.0. You don't want to rollback your installed versions of Node and Angular and anyway you'd like to run the old and new versions side by side so you can make sure everything renders the same.
 
-This is really easy to get working with Docker, so let's get started!
+This is a really easy to do with Docker, so let's get started!
 
 ## Pre-requisites
 
@@ -90,7 +90,7 @@ docker build -t docker-example:0.2 .
 docker run --rm -it docker-example:0.2 /bin/bash
 ```
 
-We can type `ng help` at the command prompt and verify that the Angular CLI is installed.
+We can type `ng version` at the command prompt and verify that the correct version of Angular is installed.
 
 ## Caching layers
 
@@ -171,7 +171,7 @@ Note that we pass the command and its parameters as an array of strings. If we s
 We can now build and serve the application remembering to forward port 4200 on the container to a suitable port on the outside world
 
 ```
-docker build -t docker-example:0.4 .
+dockser build -t docker-example:0.4 .
 docker run --rm -it -p 4200:4200 docker-example:0.4
 ```
 
