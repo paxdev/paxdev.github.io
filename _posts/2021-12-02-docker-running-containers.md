@@ -65,7 +65,7 @@ nginx            latest    f652ca386ed1   7 hours ago   141MB
 
 ## Specific versions of Images
 
-Images are specified by a `Tag`. In the above example ew have the `latest` image. 
+Images are specified by a `Tag`. In the above example we have the `latest` image. 
 
 We can pull a specific version of an image as follows 
 
@@ -99,7 +99,7 @@ docker run -it nginx /bin/bash
 
 This will result in us running an interactive `bash` session inside our container. 
 
-There is nothing to stop us from starting up multiple instances of the same `image`.
+There is nothing to stop us from starting up multiple instances (containers) of the same `image`. Note that these containers are isolated from each other.
 
 We can list all our `containers` using (in a different terminal window!)
 
@@ -169,15 +169,41 @@ docker run -v c:\Users\demo:/mnt/demo --rm -it nginx /bin/bash
 ls /mnt/demo
 ```
 
+This is useful when you want to persist files beyond the lifetime of a given container, or to share a file system _between_ containers (e.g. multiple instances of a given image sharing the same configuration). You may also want to, e.g., export some sort of report to the host operating system.
+
+If you haven't started your container with a volume mount, you can use the `docker cp` command to copy files from, or to, a running container.
+
 ### Set environment variables
 
 I can set environment variables using `-e VARNAME1 -e VARNAME2=value`
 
+This is typically used for things like telling the container what environment configuration to use. 
+
 ```
 # In the host
-docker run --rm -e MYVAR=hello -it nginx /bin/bash
+docker run --rm -e ENVIRONMENT=staging -it nginx /bin/bash
 
 # In the container
-echo $MYVAR
-hello
+echo $ENVIRONMENT
+staging
 ```
+
+## Getting help
+
+Get general help by passing `--help` as a parameter
+
+```
+docker --help
+```
+
+Additionally get help with a specific command
+
+```
+docker cp --help
+```
+
+## Conclusion
+
+This is a very brief overview of running and interacting with containers.
+
+In practice, apart from running containers with specified ports, volume mounts and environment variables, I find I either need to use `docker cp` to copy out log files and the like, or `docker exec` to launch a command shell in a running container for debug purposes.
