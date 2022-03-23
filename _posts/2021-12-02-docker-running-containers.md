@@ -35,6 +35,18 @@ You can increase the number of images you are able to download by registering fo
 
 _Once an image is pulled it is stored locally and does not to be downloaded again._
 
+### What images can I run?
+
+For the purposes of this demo I am using the web server Nginx as it can be used simply for an example.
+
+Typically I use Docker when I want to try something complicated with a lot of dependencies such as specific versions of Java, Node, .Net etc.
+
+Great examples are things like TeamCity, Jenkins, Build Agents for Azure DevOps, Octopus Tentacles, Ansible. 
+
+You can fire up a Docker image which has already configured these dependencies for you, and, when you quit the container, you can just delete the image and container and your local environment is left unchanged. 
+
+At it's most basic, of course, it can be just a simple way to run a Linux tool on a Windows box.
+
 ## Pull an Image
 
 Let's pull our first image
