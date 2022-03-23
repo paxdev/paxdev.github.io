@@ -37,9 +37,9 @@ _Once an image is pulled it is stored locally and does not to be downloaded agai
 
 ### What images can I run?
 
-For the purposes of this demo I am using the web server Nginx as it can be used simply for an example.
+For the purposes of this demo I am using the web server Nginx as it's a useful way to illustrate the features I want to discuss.
 
-Typically I use Docker when I want to try something complicated with a lot of dependencies such as specific versions of Java, Node, .Net etc.
+More useful ways I typically use Docker at home are when I want to try something complicated with a lot of dependencies such as specific versions of Java, Node, .Net etc.
 
 Great examples are things like TeamCity, Jenkins, Build Agents for Azure DevOps, Octopus Tentacles, Ansible. 
 
