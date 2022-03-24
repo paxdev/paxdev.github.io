@@ -26,6 +26,10 @@ This post assumes that you already have [Docker installed](https://docs.docker.c
 
 In this post I am using Linux containers, but the principle works equally well with Windows Containers
 
+## Sample app
+
+The principles here work for any Angular app, but, if you want to code along, the source code for the app I'm using is at https://github.com/paxdev/docker-demo.
+
 ## How a Docker build works
 
 A Docker `Image` is built from a `Context` and a `Dockerfile`.
