@@ -175,7 +175,7 @@ Note that we pass the command and its parameters as an array of strings. If we s
 We can now build and serve the application remembering to forward port 4200 on the container to a suitable port on the outside world
 
 ```
-dockser build -t docker-example:0.4 .
+docker build -t docker-example:0.4 .
 docker run --rm -it -p 4200:4200 docker-example:0.4
 ```
 
