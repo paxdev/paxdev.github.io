@@ -28,7 +28,7 @@ In this post I am using Linux containers, but the principle works equally well w
 
 ## Sample app
 
-The principles here work for any Angular app, but, if you want to code along, the source code for the app I'm using is at https://github.com/paxdev/docker-demo.
+The principles here work for any Angular app, but, if you want to code along, the source code for the app I'm using is at [https://github.com/paxdev/docker-demo](https://github.com/paxdev/docker-demo).
 
 ## How a Docker build works
 
