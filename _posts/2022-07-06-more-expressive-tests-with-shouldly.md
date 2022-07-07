@@ -1,5 +1,5 @@
 ---
-  title: More Assertions with Shouldly 
+  title: More Expressive Tests with Shouldly 
   tags:
     - csharp
     - tdd
@@ -96,3 +96,81 @@ response.StatusCode
 Not only is it immediately clear from my tests what I'm testing and what I expect my results to be but the test failure messages tell me what is being tested, what results were expected _and_ what the actual results were.
 In addition the syntax is much simpler to get right and it follows natural speech patterns so I don't have to spend valuable time deciphering C# syntax when reading/debugging code.
 
+There are additional advantages. 
+
+As you might expect, exceptions are handled (excuse the pun) gracefully:
+
+```
+class Throws
+{
+    public void GetResult() => throw new AccessViolationException();
+}
+
+var sut = new Throws();
+
+Should.Throw<BadImageFormatException>(sut.GetResult);
+
+/*
+`sut.GetResult`
+    should throw
+System.BadImageFormatException
+    but threw
+System.AccessViolationException
+*/
+```
+
+The `Should.Throw` method returns the thrown `Exception` so you can continue to test the message or any other properties of the `Exception` you wish.
+
+As with any Assertion library there are useful assertions for `Types`, `Collections`, `Strings` and so forth, however there is one final killer feature which makes `Shouldly` stand out in my opinion.
+
+Whilst in a `Unit Test` you should strive to only have one logical assertion per test, when you have something like a `System Integration Test` which has a lot of complex and expensive setup, you may wish to run a number of tests from a given setup, e.g. was the database updated correctly, did any logs get created, were APIs called correctly as well as checking the format and state of the returned HttpResponse.
+
+The problem with a standard Assertion Library is that the first failed Assertion will cause the test to stop running and you won't get feedback from any further tests.
+
+`Shouldly` solves this problem with `ShouldSatisfyAllConditions`:
+
+```
+var response = new { StatusCode = 503 };
+var repository = new {RecordCount = 7};
+var logs = new {Entries = new[] {new {Message = "Failed"}}};
+
+response.ShouldSatisfyAllConditions
+(
+    () => response.StatusCode.ShouldBe(200),
+    () => repository.RecordCount.ShouldBe(2),
+    () => logs.Entries.ShouldContain(e => e.Message == "Success")
+);
+
+/*
+response
+    should satisfy all the conditions specified, but does not.
+The following errors were found ...
+--------------- Error 1 ---------------
+    response.StatusCode
+        should be
+    200
+        but was
+    503
+
+--------------- Error 2 ---------------
+    repository.RecordCount
+        should be
+    2
+        but was
+    7
+
+--------------- Error 3 ---------------
+    logs.Entries
+        should contain an element satisfying the condition
+    (e.Message == "Success")
+        but does not
+
+-----------------------------------------
+*/
+```
+
+So you've got great feedback for _all_ the failed assertions in this test and not just the first.
+
+In this post I've given a very quick introduction to `Shouldly's` capabilities. I hope it helps you in your work.
+
+Happy coding!
