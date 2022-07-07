@@ -30,9 +30,9 @@ The Assert syntax is not very easy to read and the failure message doesn't tell 
 Things get worse when we need to compare values - see if you can spot the deliberate mistake.
 
 ```
-var result = new { StatusCode = 404 };
+var response = new { StatusCode = 404 };
 
-Assert.Equal(result.Value, 200);
+Assert.Equal(response.StatusCode, 200);
 
 /*
 Assert.Equal() Failure
@@ -106,23 +106,25 @@ As you might expect, exceptions are handled (excuse the pun) gracefully:
 ```
 class Throws
 {
-    public void GetResult() => throw new AccessViolationException();
+    public async Task GetResult() => throw new ArgumentOutOfRangeException();
 }
 
 var sut = new Throws();
 
-Should.Throw<BadImageFormatException>(sut.GetResult);
+var thrown = await Should.ThrowAsync<ArgumentNullException>(sut.GetResult);
+
+thrown.ParamName.ShouldBe("expected");
 
 /*
 `sut.GetResult`
     should throw
-System.BadImageFormatException
+System.ArgumentNullException
     but threw
-System.AccessViolationException
+System.ArgumentOutOfRangeException
 */
 ```
 
-The `Should.Throw` method returns the thrown `Exception` so you can continue to test the message or any other properties of the `Exception` you wish.
+The `Should.ThrowAsync` method returns the thrown `Exception` so you can continue to test the message or any other properties of the `Exception` you wish (N.B. there is, of course a synchronous version).
 
 As with any Assertion library there are useful assertions for `Types`, `Collections`, `Strings` and so forth, however there is one final killer feature which makes `Shouldly` stand out in my opinion.
 
