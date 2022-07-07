@@ -3,6 +3,7 @@
   tags:
     - csharp
     - tdd
+  permalink: /shouldly/demo
 ---
 
 There are a couple of key things all good Unit Tests should do:
