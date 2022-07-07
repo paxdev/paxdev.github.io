@@ -177,3 +177,5 @@ So you've got great feedback for _all_ the failed assertions in this test and no
 In this post I've given a very quick introduction to `Shouldly's` capabilities. I hope it helps you in your work.
 
 Happy coding!
+
+_Sample code from the article and additional Shouldly examples available at https://github.com/paxdev/ShouldyDemo_
