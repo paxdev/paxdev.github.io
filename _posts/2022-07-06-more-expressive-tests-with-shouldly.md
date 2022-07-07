@@ -178,4 +178,4 @@ In this post I've given a very quick introduction to `Shouldly's` capabilities. 
 
 Happy coding!
 
-_Sample code from the article and additional Shouldly examples available at https://github.com/paxdev/ShouldyDemo_
+_Sample code from the article and additional Shouldly examples available at https://github.com/paxdev/ShouldlyDemo_
