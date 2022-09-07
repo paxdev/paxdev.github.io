@@ -95,7 +95,7 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
 
   Note also the use of single `'` quotes above. If I had used double `"` quotes then `git` would have evaluated what's inside the double quotes, i.e. the `$(git current-branch)` and `$branch`. At the point of execution (i.e. when creating the alias) they would have evaluated to `null` and I would have got unexpected blank spaces.
 
-* **Setting Upstrem when pushing**
+* **Setting Upstream when pushing**
 
   I invariably forget to set the upstream when creating a new local branch, so I can do
 
@@ -133,6 +133,6 @@ However, if you add a `!` at the beginning of your `alias` you are telling `git`
   git config --global alias.merge-request '!branch=$(git current-branch | sed \"s/\//%2f/g\") && git remote get-url origin | sed \"s/\.git$//\" | sed \"s/$/\/-\/merge_requests\/new?merge_request%5Bsource_branch%5D=/\" | sed \"s|$|${branch}|\" | start $(cat)'
   ```
 
-  Note that handily GitHub and GitLab use differt names *Pull-* and *Merge-* request so you can have both commands globally if you happen to use both.
+  Note that handily GitHub and GitLab use different names *Pull-* and *Merge-* request so you can have both commands globally if you happen to use both.
 
   For more information, check out [this excellent article from Phil Haack](https://haacked.com/archive/2014/07/28/github-flow-aliases/) 
