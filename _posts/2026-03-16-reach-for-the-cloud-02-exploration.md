@@ -6,8 +6,8 @@
   tags:
     - azure
     - cloud
-    - personal development
-    - soft skills
+    - personal-development
+    - soft-skills
   permalink: /learn-cloud-skills/02-exploration
 ---
 
