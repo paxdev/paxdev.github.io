@@ -2,7 +2,8 @@
   title: Learn Cloud Skills on a Budget
   header:
     subheading: "Learn Cloud Skills on a Budget: 01 - Intro"
-  tags:
+    backgroundImage: /assets/bg/soyuz.jpg
+tags:
     - csharp
     - tdd
   permalink: /learn-cloud-skills/01-intro
@@ -12,9 +13,9 @@
 
 Welcome to the start of a new series of posts where I share some tips about creating a program to learn Cloud Skills (and potentially gain certification) when you only have a minimal training budget.
 
-This follows a journey I've taken myself and my company on. It should be valuable both to individuals trying to gain valuable skills and leaders who want to create a training plan for teams with varying levels of experience.
+This follows a journey I've taken myself and my team on. It should be valuable both to individuals trying to gain valuable skills and leaders who want to create a training plan for teams with varying levels of experience.
 
-Whilst this is primarily focused on a specific project to train a team in Azure Serverless technologies, the same principles can be applied to any of the large cloud providers, and similarly the same principles can be extended to any form of new technologies.
+Whilst this is primarily focused on a my team's journey with Azure Serverless technologies, the same principles can be applied to any of the large cloud providers, and could be extended to any new technology.
 
 Along the way I'll share some tips for finding time to fit learning around a busy schedule.
 
