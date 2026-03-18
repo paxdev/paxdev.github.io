@@ -3,9 +3,11 @@
   header:
     subheading: "Learn Cloud Skills on a Budget: 01 - Intro"
     backgroundImage: /assets/bg/soyuz.jpg
-tags:
-    - csharp
-    - tdd
+  tags:
+    - azure
+    - cloud
+    - personal development
+    - soft skills
   permalink: /learn-cloud-skills/01-intro
 ---
 
